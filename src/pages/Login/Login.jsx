@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Login.scss";
 
 const Login = () => {
@@ -18,7 +19,13 @@ const Login = () => {
           <input type="password" placeholder="Password" />
           <button className="loginButton">Sign In</button>
           <span>
-            New to Netflix? <b>Sign up now.</b>
+            New to Netflix?{" "}
+            <b>
+              <Link to="/register" className="link">
+                Sign up
+              </Link>{" "}
+              now.
+            </b>
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you are not a

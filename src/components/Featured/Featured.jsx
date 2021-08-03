@@ -1,7 +1,28 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./Featured.scss";
 
 const Featured = ({ type }) => {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDZjYmE5Nzg1ZTY5NDc3NDJlOTMyZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNzk4NTE0MywiZXhwIjoxNjI4NDE3MTQzfQ.ATh_4WVwxK5_-d1EeupmPP95nIwkddTV8HCGlSDI_a8",
+          },
+        });
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getRandomContent();
+  }, [type]);
   return (
     <div className="featured">
       {type && (
@@ -25,22 +46,10 @@ const Featured = ({ type }) => {
           </select>
         </div>
       )}
-      <img
-        width="100%"
-        src="https://images.pexels.com/photos/6177572/pexels-photo-6177572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="profile picture"
-      />
+      <img width="100%" src={content.img} alt="profile picture" />
       <div className="info">
-        <img
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fofficialpsds.com%2Fimageview%2Fr0%2Fx3%2Fr0x3mw_large.png%3F1521316558&f=1&nofb=1"
-          alt=""
-        />
-        <span className="desc">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, nisi
-          rem. Numquam, eum. Molestias veritatis debitis quas modi doloribus in
-          odio, ratione dicta hic dolore sunt quia perspiciatis, aspernatur
-          iste!
-        </span>
+        <img src={content.img} alt="" />
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
