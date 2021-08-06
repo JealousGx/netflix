@@ -21,7 +21,10 @@ const Register = () => {
     setPassword(passwordRef.current.value);
     setUsername(userRef.current.value);
     try {
-      await axios.post("auth/register", { email, username, password });
+      await axios.post(
+        "https://warm-taiga-58602.herokuapp.com/api/auth/register",
+        { email, username, password }
+      );
       history.push("/login");
     } catch (err) {
       console.log(err);
