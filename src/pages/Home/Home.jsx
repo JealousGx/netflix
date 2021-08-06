@@ -5,7 +5,7 @@ import List from "../../components/List/List";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Home.scss";
 
-const Home = ({ type }) => {
+const Home = ({ type, user }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
   useEffect(() => {
@@ -18,11 +18,11 @@ const Home = ({ type }) => {
           {
             headers: {
               token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDZjYmE5Nzg1ZTY5NDc3NDJlOTMyZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNzk4NTE0MywiZXhwIjoxNjI4NDE3MTQzfQ.ATh_4WVwxK5_-d1EeupmPP95nIwkddTV8HCGlSDI_a8",
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );
-        console.log(res);
         setLists(res.data);
       } catch (err) {
         console.log(err);
@@ -32,7 +32,7 @@ const Home = ({ type }) => {
   }, [type, genre]);
   return (
     <div className="home">
-      <Navbar />
+      <Navbar user={user} />
       <Featured type={type} />
       {lists.map((list, id) => (
         <List key={id} list={list} />

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../auth/AuthContext";
+import { logout } from "../../auth/AuthActions";
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
 import "./Navbar.scss";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { dispatch } = useContext(AuthContext);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -25,27 +27,31 @@ const Navbar = () => {
             <span>Homepage</span>
           </Link>
           <Link to="/series" className="link">
-            <span>Series</span>
+            <span className="navbarmainLinks">Series</span>
           </Link>
           <Link to="/movies" className="link">
-            <span>Movies</span>
+            <span className="navbarmainLinks">Movies</span>
           </Link>
           <span>New & popular</span>
           <span>My list</span>
         </div>
         <div className="right">
           <Search className="icon" />
-          <span>JealousGx</span>
+          <span>{user.username}</span>
           <Notifications className="icon" />
           <img
-            src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            alt="profile picture"
+            src={
+              user.profilePic
+                ? user.profilePic
+                : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0d%2Fdc%2Fca%2F0ddccae723d85a703b798a5e682c23c1.png&f=1&nofb=1"
+            }
+            alt="profile"
           />
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">
               <span>Settings</span>
-              <span>Logout</span>
+              <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>
         </div>

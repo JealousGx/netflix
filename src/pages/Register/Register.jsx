@@ -1,19 +1,31 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import "./Register.scss";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const emailRef = useRef();
   const passwordRef = useRef();
+  const userRef = useRef();
+  const history = useHistory();
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
 
-  const handleFinish = () => {
+  const handleFinish = async (e) => {
+    e.preventDefault();
     setPassword(passwordRef.current.value);
+    setUsername(userRef.current.value);
+    try {
+      await axios.post("auth/register", { email, username, password });
+      history.push("/login");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -24,7 +36,7 @@ const Register = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <Link to="/login" className="link">
+          <Link to="/link">
             <button className="loginButton">Sign In</button>
           </Link>
         </div>
@@ -49,6 +61,7 @@ const Register = () => {
               placeholder="Enter password"
               ref={passwordRef}
             />
+            <input type="username" placeholder="Enter username" ref={userRef} />
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>

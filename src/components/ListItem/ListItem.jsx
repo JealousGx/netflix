@@ -19,7 +19,7 @@ const ListItem = ({ index, item }) => {
         const res = await axios.get("/movies/find/" + item, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDZjYmE5Nzg1ZTY5NDc3NDJlOTMyZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNzk4NTE0MywiZXhwIjoxNjI4NDE3MTQzfQ.ATh_4WVwxK5_-d1EeupmPP95nIwkddTV8HCGlSDI_a8",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDZjYmE5Nzg1ZTY5NDc3NDJlOTMyZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODE2MzQzMCwiZXhwIjoxNjI4NTk1NDMwfQ.0349_xbw0Je7AVHIX-4tDr_w6FszeMw1hut8rb6xfB4",
           },
         });
         setMovie(res.data);
@@ -29,6 +29,7 @@ const ListItem = ({ index, item }) => {
     };
     getMovie();
   }, [item]);
+
   return (
     <Link to={{ pathname: "/watch", movie: movie }}>
       <div

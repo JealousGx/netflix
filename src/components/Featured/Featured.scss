@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .featured {
   height: 90vh;
   position: relative;
@@ -39,10 +40,17 @@
 
     img {
       width: 400px;
+      @include mobile {
+        width: 300px;
+      }
     }
 
     .desc {
       margin: 20px 0px;
+
+      @include mobile {
+        width: 300px;
+      }
     }
 
     .buttons {

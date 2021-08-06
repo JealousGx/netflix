@@ -48,7 +48,7 @@ const Featured = ({ type }) => {
       )}
       <img width="100%" src={content.img} alt="profile picture" />
       <div className="info">
-        <img src={content.img} alt="" />
+        <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
