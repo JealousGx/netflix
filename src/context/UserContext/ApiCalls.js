@@ -17,11 +17,15 @@ import {
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await axios.get("/users", {
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const res = await axios.get(
+      "https://warm-taiga-58602.herokuapp.com/api/users",
+      {
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     dispatch(getUsersSuccess(res.data));
   } catch (err) {
     dispatch(getUsersFail(err));
@@ -32,11 +36,16 @@ export const getUsers = async (dispatch) => {
 export const createUser = async (user, dispatch) => {
   dispatch(createUserStart());
   try {
-    const res = await axios.post("/users", user, {
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const res = await axios.post(
+      "https://warm-taiga-58602.herokuapp.com/api/users",
+      user,
+      {
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     dispatch(createUserSuccess(res.data));
   } catch (err) {
     dispatch(createUserFail(err));
@@ -47,11 +56,15 @@ export const createUser = async (user, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    await axios.delete("/users/" + id, {
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    await axios.delete(
+      "https://warm-taiga-58602.herokuapp.com/api/users/" + id,
+      {
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     dispatch(deleteUserSuccess(id));
   } catch (err) {
     dispatch(deleteUserFail(err));
@@ -62,11 +75,16 @@ export const deleteUser = async (id, dispatch) => {
 export const updateUser = async (user, dispatch) => {
   dispatch(updateUserStart());
   try {
-    const res = await axios.put("/users/" + user._id, user, {
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const res = await axios.put(
+      "https://warm-taiga-58602.herokuapp.com/api/users/" + user._id,
+      user,
+      {
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     dispatch(updateUserSuccess(res.data));
   } catch (err) {
     dispatch(updateUserFail(err));

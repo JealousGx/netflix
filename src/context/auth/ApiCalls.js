@@ -4,7 +4,10 @@ import { loginFail, loginStart, loginSuccess } from "./AuthActions";
 export const loginCall = async (user, dispatch) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post("/auth/login", user);
+    const res = await axios.post(
+      "https://warm-taiga-58602.herokuapp.com/api/auth/login",
+      user
+    );
     res.data.isAdmin && dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFail());

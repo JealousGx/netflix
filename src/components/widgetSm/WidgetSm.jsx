@@ -8,12 +8,16 @@ export default function WidgetSm() {
   useEffect(() => {
     const getNewUsers = async () => {
       try {
-        const res = await axios.get("/users?new=true", {
-          headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDZjYmE5Nzg1ZTY5NDc3NDJlOTMyZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNzgzOTU3NSwiZXhwIjoxNjI4MjcxNTc1fQ.rZ-QZH_IFjy7MQDsntyvHbcfr3h-oyZiQK6fJ5A5gak",
-          },
-        });
+        const res = await axios.get(
+          "https://warm-taiga-58602.herokuapp.com/api/users?new=true",
+          {
+            headers: {
+              token:
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
+            },
+          }
+        );
         setNewUsers(res.data);
       } catch (err) {
         console.log(err);
@@ -37,7 +41,7 @@ export default function WidgetSm() {
             />
             <div className="widgetSmUser">
               <span className="widgetSmUsername">{user.username}</span>
-              <span className="widgetSmUserTitle">Software Engineer</span>
+              <span className="widgetSmUserTitle">{user.isAdmin}</span>
             </div>
             <button className="widgetSmButton">
               <Visibility className="widgetSmIcon" />
