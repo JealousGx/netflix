@@ -21,7 +21,7 @@ router.post("/", verify, async (req, res) => {
 router.post("/:id", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
-      const savedMovie = await Movie.findByIdAndUpdate(
+      const updatedMovie = await Movie.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
