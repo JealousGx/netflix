@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {
   Add,
-  Movie,
   PlayArrow,
   ThumbDownAltOutlined,
   ThumbUpAltOutlined,

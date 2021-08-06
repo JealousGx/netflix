@@ -7,14 +7,16 @@ import "./Home.scss";
 
 const Home = ({ type, user }) => {
   const [lists, setLists] = useState([]);
+  /* eslint-disable */
   const [genre, setGenre] = useState(null);
+  /* eslint-enable */
   useEffect(() => {
     const getRandomList = async () => {
       try {
         const res = await axios.get(
-          `lists${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
+          `https://warm-taiga-58602.herokuapp.com/api/lists${
+            type ? "?type=" + type : ""
+          }${genre ? "&genre=" + genre : ""}`,
           {
             headers: {
               token:

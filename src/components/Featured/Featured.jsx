@@ -50,7 +50,7 @@ const Featured = ({ type }) => {
           </select>
         </div>
       )}
-      <img width="100%" src={content.img} alt="profile picture" />
+      <img width="100%" src={content.img} alt="profile" />
       <div className="info">
         <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>

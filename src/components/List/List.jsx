@@ -9,7 +9,9 @@ import "./List.scss";
 const List = ({ list }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
+  /* eslint-disable */
   const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
+  /* eslint-enable */
   const listRef = useRef();
 
   const handleClick = (direction) => {
