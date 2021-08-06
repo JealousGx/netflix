@@ -12,7 +12,7 @@ const Featured = ({ type }) => {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDZjYmE5Nzg1ZTY5NDc3NDJlOTMyZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNzk4NTE0MywiZXhwIjoxNjI4NDE3MTQzfQ.ATh_4WVwxK5_-d1EeupmPP95nIwkddTV8HCGlSDI_a8",
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);

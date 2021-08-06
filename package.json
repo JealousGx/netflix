@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8800/api/"
+  "proxy": "https://warm-taiga-58602.herokuapp.com/api/"
 }
