@@ -27,6 +27,7 @@ The technology used in this project was:
 To run this code on your machine, you need to have:
 
 NodeJS or yarn
-Basic knowledge of NPM and React Then simply do ```npm i && npm start``` in the client folder, and in case you have yarn, you have to type ```yarn``` and then ```yarn start```
+Basic knowledge of NPM and React. Then simply do ```npm i && npm start``` in the client folder and in case you have yarn, just type ```yarn``` and then ```yarn start```
+
 ---
 Then you can just register and you will be redirected to the actual page where content lies.
