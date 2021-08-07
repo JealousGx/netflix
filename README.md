@@ -23,7 +23,7 @@ The technology used in this project was:
 - JWT (JSON Web token to encrypt the passwords)
 
 
-######Demo
+###### Demo
 To run this code on your machine, you need to have:
 
 NodeJS or yarn
