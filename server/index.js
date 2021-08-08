@@ -1,5 +1,7 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const authRoute = require("./Routes/auth");
@@ -18,6 +20,7 @@ mongoose
   .then(() => console.log("DB connection successful!"))
   .catch((err) => console.log(err));
 
+app.use(express.json());
 app.use(express.json());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
