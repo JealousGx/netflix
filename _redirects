@@ -1,5 +1,0 @@
-# Redirects from what the browser requests to what we serve
-/login   
-/watch
-/register
-https://warm-taiga-58602.herokuapp.com/api/

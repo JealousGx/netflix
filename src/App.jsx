@@ -14,7 +14,7 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path="/">
-          {user ? <Home user={user} /> : <Redirect to="/register" />}
+          {user ? <Home user={user} /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/register">
           {!user ? <Register /> : <Redirect to="/" />}
