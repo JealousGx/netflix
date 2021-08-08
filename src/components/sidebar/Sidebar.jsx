@@ -2,13 +2,8 @@ import "./sidebar.css";
 import {
   LineStyle,
   Timeline,
-  TrendingUp,
   PermIdentity,
   List,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
   WorkOutline,
   Report,
   PlayCircleOutline,

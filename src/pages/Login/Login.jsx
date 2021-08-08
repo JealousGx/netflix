@@ -1,5 +1,5 @@
 import { Button, TextField } from "@material-ui/core";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { loginCall } from "../../context/auth/ApiCalls";
 import { AuthContext } from "../../context/auth/AuthContext";
 import "./Login.css";

@@ -8,6 +8,7 @@ import "./product.css";
 import { Publish } from "@material-ui/icons";
 
 export default function Product() {
+  /* eslint-disable */
   const [uploadMovie, setUploadMovie] = useState(null);
   const [img, setImg] = useState(null);
   const [imgTitle, setImgTitle] = useState(null);
@@ -15,6 +16,7 @@ export default function Product() {
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
+  /* eslint-enable */
 
   const upload = (items) => {
     items.forEach((item) => {

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { createUser } from "../../context/UserContext/ApiCalls";
 import { UserContext } from "../../context/UserContext/UsersContext";
